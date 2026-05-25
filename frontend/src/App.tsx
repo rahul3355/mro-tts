@@ -145,7 +145,7 @@ export default function App() {
           <div className="h-3 w-3 rounded-full bg-brand-amber animate-pulse border border-brand-amber/40" />
           <div>
             <h1 className="text-lg font-mono font-bold tracking-widest text-brand-text-bright uppercase">
-              mro-tts // MAINTENANCE CONSOLE
+              MRO-TTS // MAINTENANCE CONSOLE
             </h1>
             <p className="text-[10px] font-mono text-brand-text tracking-wider uppercase">
               Operational compliance verification terminal

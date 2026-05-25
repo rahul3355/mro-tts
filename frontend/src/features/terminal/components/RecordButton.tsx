@@ -79,7 +79,7 @@ export function RecordButton({ onAudioReady }: RecordButtonProps) {
 
       {/* Sample phrase hint - always visible */}
       <p className="text-center font-sans text-[11px] text-brand-text italic normal-case max-w-[260px] leading-relaxed px-2">
-        Try speaking: &ldquo;On the left wing span, torque of 45 foot-pounds has been installed. Safety wiring is completed.&rdquo;
+        Try speaking: &ldquo;Composite cure vacuum bagging maintained at 24 inches of mercury and positive curing pressure at 85 psi.&rdquo;
       </p>
     </div>
   );
