@@ -1,0 +1,101 @@
+prompts:
+  - file://app/pipelines/prompts/validation_prompt.txt
+
+providers:
+  - id: file://promptfoo_provider.py
+
+tests:
+  # Case 1 (PASS) - Avionics Wire Ampacity & Resistance
+  - vars:
+      transcript: "Routed a new AWG 16 conductor utilizing a 19/29 stranding configuration. The direct current resistance of the wire was measured at 3.95 ohms per 1000 feet at 20C. Peak current load under test is 11.5 amperes in free air."
+      context: "An AWG 16 conductor utilizing a 19/29 stranding configuration must exhibit a maximum direct current resistance of 4.02 ohms per 1000 feet at 20°C, and is limited to a maximum single-wire free-air ampacity of 13.0 amperes."
+    assert:
+      - type: is-json
+      - type: javascript
+        value: |
+          const start = output.indexOf('{');
+          const end = output.lastIndexOf('}');
+          if (start === -1 || end === -1) return false;
+          const data = JSON.parse(output.substring(start, end + 1));
+          if (data.validation.status !== 'PASS') return false;
+          const params = data.record.compliance_parameters || [];
+          const hasResistance = params.some(p => p.label.toLowerCase().includes('resistance') && p.value.includes('3.95') && p.status === 'PASS');
+          const hasAmpacity = params.some(p => (p.label.toLowerCase().includes('ampacity') || p.label.toLowerCase().includes('current') || p.label.toLowerCase().includes('load')) && p.value.includes('11.5') && p.status === 'PASS');
+          return hasResistance && hasAmpacity;
+
+  # Case 2 (FAIL) - Avionics Wire Ampacity Exceeded
+  - vars:
+      transcript: "Completed installation of an AWG 20 conductor with 19/32 stranding. Measured wire resistance is 9.80 ohms per 1000 feet at 20C. The circuit drew a continuous current load of 8.0 amperes in free air."
+      context: "An AWG 20 conductor utilizing a 19/32 stranding configuration must exhibit a maximum direct current resistance of 9.95 ohms per 1000 feet at 20°C, and is limited to a maximum single-wire free-air ampacity of 7.5 amperes."
+    assert:
+      - type: is-json
+      - type: javascript
+        value: |
+          const start = output.indexOf('{');
+          const end = output.lastIndexOf('}');
+          if (start === -1 || end === -1) return false;
+          const data = JSON.parse(output.substring(start, end + 1));
+          if (data.validation.status !== 'FAIL') return false;
+          const params = data.record.compliance_parameters || [];
+          const hasResistance = params.some(p => p.label.toLowerCase().includes('resistance') && p.value.includes('9.80') && p.status === 'PASS');
+          const hasAmpacity = params.some(p => (p.label.toLowerCase().includes('ampacity') || p.label.toLowerCase().includes('current') || p.label.toLowerCase().includes('load')) && p.value.includes('8.0') && p.status === 'FAIL');
+          const issues = data.validation.details.issues || [];
+          const hasIssue = issues.length > 0 && issues.some(i => i.toLowerCase().includes('ampacity') || i.toLowerCase().includes('ampere') || i.toLowerCase().includes('limit') || i.toLowerCase().includes('exceed'));
+          return hasResistance && hasAmpacity && hasIssue;
+
+  # Case 3 (PASS) - Ground Stud Torque & Bond Resistance
+  - vars:
+      transcript: "Installed a 10-32 steel ground stud nut on a Class R electrical return path. Torqued the grounding hardware to 22.5 inch-pounds. The electrical bonding resistance of the stud assembly measured 1.9 milliohms."
+      context: "The specific electrical path from a static discharge wick, as a Class R electrical bond, is strictly limited to a maximum of 2.5 milliohms (2.5mΩ). A number 10-32 steel ground stud nut requires a minimum installation torque of 20.0 inch-pounds and a maximum torque of 25.0 inch-pounds."
+    assert:
+      - type: is-json
+      - type: javascript
+        value: |
+          const start = output.indexOf('{');
+          const end = output.lastIndexOf('}');
+          if (start === -1 || end === -1) return false;
+          const data = JSON.parse(output.substring(start, end + 1));
+          if (data.validation.status !== 'PASS') return false;
+          const params = data.record.compliance_parameters || [];
+          const hasTorque = params.some(p => p.label.toLowerCase().includes('torque') && p.value.includes('22.5') && p.status === 'PASS');
+          const hasResistance = params.some(p => (p.label.toLowerCase().includes('bonding') || p.label.toLowerCase().includes('resistance') || p.label.toLowerCase().includes('electrical')) && p.value.includes('1.9') && p.status === 'PASS');
+          return hasTorque && hasResistance;
+
+  # Case 4 (FAIL) - Under-torqued 1/4-28 Ground Stud Nut
+  - vars:
+      transcript: "Completed grounding termination on a Class C lightning protection structure. Installed a 1/4-28 ground stud nut and torqued the assembly to 32.0 inch-pounds. Measured bonding resistance is 1.1 milliohms."
+      context: "The specific electrical path from a static discharge wick, as a Class C electrical bond, is strictly limited to a maximum of 1.5 milliohms (1.5mΩ). A larger 1/4-28 ground stud nut requires a minimum installation torque of 40.0 inch-pounds and a maximum torque of 50.0 inch-pounds."
+    assert:
+      - type: is-json
+      - type: javascript
+        value: |
+          const start = output.indexOf('{');
+          const end = output.lastIndexOf('}');
+          if (start === -1 || end === -1) return false;
+          const data = JSON.parse(output.substring(start, end + 1));
+          if (data.validation.status !== 'FAIL') return false;
+          const params = data.record.compliance_parameters || [];
+          const hasTorque = params.some(p => p.label.toLowerCase().includes('torque') && p.value.includes('32.0') && p.status === 'FAIL');
+          const hasResistance = params.some(p => (p.label.toLowerCase().includes('bonding') || p.label.toLowerCase().includes('resistance') || p.label.toLowerCase().includes('electrical')) && p.value.includes('1.1') && p.status === 'PASS');
+          const issues = data.validation.details.issues || [];
+          const hasIssue = issues.length > 0 && issues.some(i => i.toLowerCase().includes('torque') || i.toLowerCase().includes('under') || i.toLowerCase().includes('below') || i.toLowerCase().includes('minimum'));
+          return hasTorque && hasResistance && hasIssue;
+
+  # Case 5 (PASS) - 1/2-inch CRES Flareless Tubing Torque & Clearance
+  - vars:
+      transcript: "Completed installation of a 1/2-inch CRES flareless tube line. Torqued the B-nut fitting to 200 inch-pounds using a dial torque wrench. Measured lateral clearance to the adjacent wire bundle is 0.75 inches, and separation from the flight control cables is 2.5 inches."
+      context: "The installation fastening torque for a 1/2-inch CRES flareless fitting B-nut must be maintained between a minimum of 180 inch-pounds to a maximum of 220 inch-pounds. Clearances must enforce a minimum clearance distance of 0.5 inches (12.7 mm) between any fluid power tube and an adjacent electrical wire harness, and a minimum separation distance of 2.0 inches (50.8 mm) from any moving mechanical flight control cables."
+    assert:
+      - type: is-json
+      - type: javascript
+        value: |
+          const start = output.indexOf('{');
+          const end = output.lastIndexOf('}');
+          if (start === -1 || end === -1) return false;
+          const data = JSON.parse(output.substring(start, end + 1));
+          if (data.validation.status !== 'PASS') return false;
+          const params = data.record.compliance_parameters || [];
+          const hasTorque = params.some(p => p.label.toLowerCase().includes('torque') && p.value.includes('200') && p.status === 'PASS');
+          const hasClearance = params.some(p => p.label.toLowerCase().includes('clearance') && p.value.includes('0.75') && p.status === 'PASS');
+          const hasSeparation = params.some(p => (p.label.toLowerCase().includes('separation') || p.label.toLowerCase().includes('control')) && p.value.includes('2.5') && p.status === 'PASS');
+          return hasTorque && hasClearance && hasSeparation;

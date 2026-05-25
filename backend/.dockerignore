@@ -1,0 +1,23 @@
+# Ignored directories
+.venv/
+venv/
+__pycache__/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+scratch/
+static/media/
+
+# Secrets and local configurations
+.env
+.env.*
+*.db
+*.sqlite
+
+# Docker files
+Dockerfile
+.dockerignore
+
+# Audio test samples
+*.wav
+*.webm

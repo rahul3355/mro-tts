@@ -1,0 +1,49 @@
+# Python artifacts
+.venv/
+venv/
+ENV/
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.ipynb_checkpoints/
+
+# Node artifacts
+node_modules/
+frontend/dist/
+frontend/node_modules/
+.eslintcache
+
+# Environment variables & secrets
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# IDE / Editors
+.vscode/
+.idea/
+.claude/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Project specific exclusions
+learn-mmo/
+backend/.venv/
+backend/__pycache__/
+backend/.pytest_cache/
+backend/.mypy_cache/
+backend/.ruff_cache/
+static/media/
+*.wav
+*.webm
+
+# System files
+.DS_Store
+Thumbs.db

@@ -1,0 +1,100 @@
+@import "tailwindcss";
+
+@theme {
+  /* Semantic brand tokens - overridden per theme below */
+  --color-brand-canvas: #f0f2f5;
+  --color-brand-panel: #ffffff;
+  --color-brand-panel-light: #f8f9fb;
+  --color-brand-amber: #d97706;
+  --color-brand-amber-hover: #b45309;
+  --color-brand-green: #059669;
+  --color-brand-red: #dc2626;
+  --color-brand-border: #d1d9e0;
+  --color-brand-text: #6b7280;
+  --color-brand-text-bright: #111827;
+
+  /* Typography */
+  --font-mono: "JetBrains Mono", "Space Mono", ui-monospace, monospace;
+  --font-sans: "Outfit", "Inter", system-ui, sans-serif;
+}
+
+/* Base custom styles to enforce industrial operational appearance */
+html,
+body,
+#root {
+  background-color: var(--color-brand-canvas);
+  color: var(--color-brand-text);
+  font-family: var(--font-sans);
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-brand-canvas);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-brand-border);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-brand-amber);
+}
+
+/* -- Infinite progress bar sweep ------------------------------------------- */
+@keyframes progress-sweep {
+  0%   { left: -40%; }
+  100% { left: 100%; }
+}
+
+.progress-sweep {
+  animation: progress-sweep 1.4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  /* override theme transition so animation isn't interrupted */
+  transition: none !important;
+}
+
+/* -- Dark theme overrides --------------------------------------------------- */
+/* Applied when html[data-theme="dark"] */
+html[data-theme="dark"] {
+  --color-brand-canvas:     #0b0d10;
+  --color-brand-panel:      #14191f;
+  --color-brand-panel-light:#1e252f;
+  --color-brand-amber:      #f59e0b;
+  --color-brand-amber-hover:#d97706;
+  --color-brand-green:      #10b981;
+  --color-brand-red:        #ef4444;
+  --color-brand-border:     #2a3441;
+  --color-brand-text:       #9ca3af;
+  --color-brand-text-bright:#f3f4f6;
+}
+
+/* Smooth theme transition on all elements */
+*,
+*::before,
+*::after {
+  transition:
+    background-color 0.25s ease,
+    border-color 0.25s ease,
+    color 0.2s ease,
+    box-shadow 0.25s ease;
+}
+
+/* Prevent transition flash on interactive states (buttons etc.) */
+button,
+a,
+input {
+  transition:
+    background-color 0.15s ease,
+    border-color 0.15s ease,
+    color 0.1s ease,
+    opacity 0.15s ease,
+    box-shadow 0.15s ease;
+}

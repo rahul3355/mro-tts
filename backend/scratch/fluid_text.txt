@@ -1,0 +1,31 @@
+Page 2: 7 Pneumatic and Hydraulic Tubing, Fittings, and Routing Standards 19
+Page 6: airframe designs, specifically exemplified by the Airbus A380 and the Boeing 787, utilize an
+Page 9: sesses a precise flash point limit of exactly 82◦C (which equates to 180◦F), representing a high
+Page 9: (which equates to 475◦F) to be considered airworthy for military operations. Commercial tri-
+Page 12: and this efficiency value must remain strictly above 90.0% when operating under full design load
+Page 15: EHSV utilizes a low-power electromagnetic torque motor coupled directly to a dual-nozzle
+Page 15: flapper-type pilot stage. When the torque motor receives a differential current command, the
+Page 20: Fittings, and Routing Standards
+Page 20: (304 stainless steel) or AMS 5570 (321 stainless steel), or lightweight titanium alloys, specifically
+Page 20: The secure termination of rigid fluid tubing lines is achieved using either flared mechanical
+Page 20: fittings or flareless bite-type fittings. Flared fittings, such as the MS21902 standard, require the
+Page 20: tube end to be precision-machined and flared outward to a specific angle, establishing a reliable
+Page 20: metal-to-metal seal between the tube flare face, the internal fitting cone, and the external sleeve
+Page 20: nut. Flareless fittings, such as the MS21900 specification, utilize a hardened internal ferrule that
+Page 20: physically bites into the outer diameter wall of the tube as the fitting nut is torqued, creating a
+Page 20: robust mechanical lock and fluid pressure seal. The installation assembly torque applied to these
+Page 20: fittings is highly critical and must be verified using a calibrated torque wrench. Over-torquing
+Page 20: the fitting induces excessive hoop stress that work-hardens and cracks the ferrule, leading to a
+Page 21: Flared tube fittings conforming to the MS21902 specification require the tube mouth to
+Page 21: be precision-flared to an angle of exactly 37 degrees. The installation fastening torque for a
+Page 21: standard 1/2-inch CRES flareless fitting must be tightly maintained within a range from a
+Page 21: minimum of 180 inch-pounds to a maximum of 220 inch-pounds (which equates to 20.3 to 24.8
+Page 21: 3 times the tube’s outside diameter for all standard 90-degree bends. Physical routing layouts
+Page 23: ance extrusion gapefor a standard 90-durometer O-ring operating at a nominal system pressure
+Page 27: 50.0% and a maximum of 70.0% of the minimum system operating pressure. For example, a
+Page 30: period while inspectors check for volumetric deformation or weeping at the fittings. Due to the
+Page 30: torque values, precharge pressures, and verified fluid cleanliness codes. This entry establishes
+Page 32: Steel (CRES) flareless tube fittings must be torqued within a strict range from a minimum of
+Page 32: 180 inch-pounds to a maximum of 220 inch-pounds (which equates to 20.3 to 24.8 Nm), and this
+Page 32: torque must be applied utilizing a calibrated crowfoot adapter attached to a dial torque wrench.
+Page 33: diametral clearance extrusion gap for a standard 90-durometer O-ring backed by a rigid PTFE

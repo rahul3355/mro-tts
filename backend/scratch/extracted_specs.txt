@@ -1,0 +1,184 @@
+avionics_wiring_handbook.pdf (Line 194): current resistance of 16.14 ohms per 1000 feet at a calibration temperature of 20◦C, and is limited
+avionics_wiring_handbook.pdf (Line 195): to a maximum single-wire free-air ampacity of 5.0 amperes. An AWG 20 conductor utilizing a
+avionics_wiring_handbook.pdf (Line 196): 19/32 stranding configuration must exhibit a maximum direct current resistance of 9.95 ohms
+avionics_wiring_handbook.pdf (Line 197): per 1000 feet at 20◦C, and is limited to a maximum single-wire free-air ampacity of 7.5 amperes.
+avionics_wiring_handbook.pdf (Line 199): current resistance of 6.39 ohms per 1000 feet at 20◦C, and is limited to a maximum single-
+avionics_wiring_handbook.pdf (Line 200): wire free-air ampacity of 10.0 amperes. An AWG 16 conductor utilizing a 19/29 stranding
+avionics_wiring_handbook.pdf (Line 201): configuration must exhibit a maximum direct current resistance of 4.02 ohms per 1000 feet at
+avionics_wiring_handbook.pdf (Line 202): 20◦C, and is limited to a maximum single-wire free-air ampacity of 13.0 amperes. An AWG
+avionics_wiring_handbook.pdf (Line 204): resistance of 2.52 ohms per 1000 feet at 20◦C, and is limited to a maximum single-wire free-air
+avionics_wiring_handbook.pdf (Line 205): ampacity of 17.0 amperes. An AWG 12 conductor utilizing a 37/28 stranding configuration
+avionics_wiring_handbook.pdf (Line 206): must exhibit a maximum direct current resistance of 1.59 ohms per 1000 feet at 20◦C, and is
+avionics_wiring_handbook.pdf (Line 207): limited to a maximum single-wire free-air ampacity of 23.0 amperes. An AWG 10 conductor
+avionics_wiring_handbook.pdf (Line 209): 0.99 ohms per 1000 feet at 20◦C, and is limited to a maximum single-wire free-air ampacity of
+avionics_wiring_handbook.pdf (Line 210): 33.0 amperes. Aluminum conductors are strictly prohibited in any wire size smaller than AWG
+avionics_wiring_handbook.pdf (Line 254): lines, a minimum physical lateral separation distance of 2.0 inches (50.8 millimeters) must be
+avionics_wiring_handbook.pdf (Line 258): minimumverticalclearancedistanceof6.0inches(152.4millimeters)directlyabovethefluidline,
+avionics_wiring_handbook.pdf (Line 262): clamps along horizontal wire bundle runs is strictly limited to 18.0 inches. The maximum
+avionics_wiring_handbook.pdf (Line 264): wire bundle runs is strictly limited to 12.0 inches. Mechanical sizing criteria for MS21919 cush-
+avionics_wiring_handbook.pdf (Line 269): inch-pounds and a maximum of 15.0 inch-pounds (which equates to 1.1 to 1.7 Newton-meters)
+avionics_wiring_handbook.pdf (Line 331): the cured potting compound layer must extend a minimum structural depth of 0.25 inches (6.35
+avionics_wiring_handbook.pdf (Line 374): limited to an accuracy of±0.015inches (0.38 millimeters) around the nominal manufacturer
+avionics_wiring_handbook.pdf (Line 377): with, or extend to a maximum length limit of 0.031 inches (0.79 millimeters) past the front edge
+avionics_wiring_handbook.pdf (Line 386): 22D contact must withstand a minimum axial tensile force of 8.0 pounds-force without pulling
+avionics_wiring_handbook.pdf (Line 388): a minimum axial tensile force of 15.0 pounds-force. An AWG 18 conductor terminated with a
+avionics_wiring_handbook.pdf (Line 389): size 20 contact must withstand a minimum axial tensile force of 20.0 pounds-force. An AWG
+avionics_wiring_handbook.pdf (Line 391): of 30.0 pounds-force. An AWG 14 conductor terminated with a size 16 contact must withstand
+avionics_wiring_handbook.pdf (Line 392): a minimum axial tensile force of 40.0 pounds-force. An AWG 12 conductor terminated with a
+avionics_wiring_handbook.pdf (Line 393): size 12 contact must withstand a minimum axial tensile force of 60.0 pounds-force. An AWG
+avionics_wiring_handbook.pdf (Line 395): of 85.0 pounds-force.
+avionics_wiring_handbook.pdf (Line 444): maintain a uniform system characteristic impedance of exactly 50 ohms, whereas video and cabin
+avionics_wiring_handbook.pdf (Line 445): management architectures require an explicit characteristic impedance of 75 ohms; cross-mating
+avionics_wiring_handbook.pdf (Line 508): remain strictly below 100 milliohms per meter when subjected to operational noise frequencies
+avionics_wiring_handbook.pdf (Line 515): maintain a strict minimum physical separation distance of 6.0 inches (152.4 millimeters) from
+avionics_wiring_handbook.pdf (Line 519): exact perpendicular angle of 90 degrees to minimize the magnetic coupling cross-sectional area.
+avionics_wiring_handbook.pdf (Line 569): as a Class R electrical bond, is strictly limited to a maximum of 2.5 milliohms (2.5mΩ). For
+avionics_wiring_handbook.pdf (Line 573): maximum of 1.5 milliohms (1.5mΩ). The specific electrical path from a static discharge wick
+avionics_wiring_handbook.pdf (Line 575): 10.0 milliohms (10.0mΩ).
+avionics_wiring_handbook.pdf (Line 580): number 10-32 steel ground stud nut requires a minimum installation torque of 20.0 inch-pounds
+avionics_wiring_handbook.pdf (Line 581): and a maximum torque of 25.0 inch-pounds, whereas a larger 1/4-28 ground stud nut requires
+avionics_wiring_handbook.pdf (Line 582): a minimum installation torque of 40.0 inch-pounds and a maximum torque of 50.0 inch-pounds
+avionics_wiring_handbook.pdf (Line 645): strictly limited to±0.020inches (0.51 millimeters) to prevent terminal pin binding or physical
+avionics_wiring_handbook.pdf (Line 696): all individual conductors possess a minimum free service loop slack length of 0.5 inches (12.7
+avionics_wiring_handbook.pdf (Line 701): of 2.0 pounds-force and a maximum of 3.0 pounds-force to verify positive mechanical engagement
+avionics_wiring_handbook.pdf (Line 848): threshold is restricted to 1.5 milliohms (1.5mΩ), verified via a calibrated four-wire Kelvin
+avionics_wiring_handbook.pdf (Line 850): trailing-edge airframe structure must exhibit a maximum verified resistance of 10.0 milliohms
+avionics_wiring_handbook.pdf (Line 853): structures, machined structural bulkheads, and skin panels must be a minimum of 3/8 inch
+avionics_wiring_handbook.pdf (Line 857): lateral separation distance of 2.0 inches (50.8 millimeters) must be maintained at all points
+avionics_wiring_handbook.pdf (Line 859): positioned vertically above the line with a minimum vertical clearance distance of 6.0 inches
+avionics_wiring_handbook.pdf (Line 875): clamps along horizontal wire bundle runs is strictly limited to 18.0 inches, and the maximum al-
+avionics_wiring_handbook.pdf (Line 877): bundle runs is strictly limited to 12.0 inches. The installation fastening torque applied to the
+avionics_wiring_handbook.pdf (Line 879): operational range between a minimum of 10.0 inch-pounds and a maximum of 15.0 inch-pounds
+avionics_wiring_handbook.pdf (Line 892): tact must withstand a minimum axial tensile force of 8.0 pounds-force without pulling out of the
+avionics_wiring_handbook.pdf (Line 894): axial tensile force of 15.0 pounds-force. An AWG 16 conductor terminated with a size 16 contact
+avionics_wiring_handbook.pdf (Line 895): must withstand a minimum axial tensile force of 30.0 pounds-force, verified using an M22520
+avionics_wiring_handbook.pdf (Line 958): ceeding the maximum 2.5 milliohms (2.5mΩ) limit on a Class R electrical ground stud return
+fluid_power_systems_handbook.pdf (Line 1081): is established at a nominal working pressure of 3000 psi (which equates to 20.7 MPa) with a
+fluid_power_systems_handbook.pdf (Line 1082): strict maintenance tolerance window of plus or minus 50 psi. Advanced modern commercial
+fluid_power_systems_handbook.pdf (Line 1084): elevated nominal operating pressure system calibrated to exactly 5000 psi (which equates to 34.5
+fluid_power_systems_handbook.pdf (Line 1206): The internal pressure compensator valve of a standard 3000 psi Engine Driven Pump (EDP)
+fluid_power_systems_handbook.pdf (Line 1208): ranging from a minimum of 2950 psi to a maximum of 3050 psi. The volumetric efficiency of an
+fluid_power_systems_handbook.pdf (Line 1262): psi to a maximum of 50 psi when the main hydraulic system is operating at its nominal pressure
+fluid_power_systems_handbook.pdf (Line 1263): of 3000 psi. Physical sizing and fluid level markings for the reservoir must be calculated to
+fluid_power_systems_handbook.pdf (Line 1382): tuate from a minimum of 20 psi at ground idle thrust to a maximum exceeding 200 psi during
+fluid_power_systems_handbook.pdf (Line 1386): inal downstream manifold duct pressure of exactly 42 psi with a tight operational tolerance
+fluid_power_systems_handbook.pdf (Line 1387): window of plus or minus 2 psi.
+fluid_power_systems_handbook.pdf (Line 1394): maximum threshold limit of 65 psi or if the localized duct air temperature exceeds an absolute
+fluid_power_systems_handbook.pdf (Line 1444): that can exceed 1.0 inch of physical growth per 10 feet of linear duct length.
+fluid_power_systems_handbook.pdf (Line 1446): be precision-flared to an angle of exactly 37 degrees. The installation fastening torque for a
+fluid_power_systems_handbook.pdf (Line 1448): minimum of 180 inch-pounds to a maximum of 220 inch-pounds (which equates to 20.3 to 24.8
+fluid_power_systems_handbook.pdf (Line 1451): must enforce a minimum clearance distance of 0.5 inches (12.7 mm) between any fluid power
+fluid_power_systems_handbook.pdf (Line 1452): tube and an adjacent electrical wire harness, and a minimum separation distance of 2.0 inches
+fluid_power_systems_handbook.pdf (Line 1453): (50.8 mm) from any moving mechanical flight control cables.
+fluid_power_systems_handbook.pdf (Line 1501): of 3000 psi must not exceed exactly 0.004 inches (which equates to 0.1 mm). Ultrasonic leak
+fluid_power_systems_handbook.pdf (Line 1554): 20 psi and a maximum of 30 psi above the clean-element nominal differential pressure drop to
+fluid_power_systems_handbook.pdf (Line 1571): 3000 psi) deviates significantly from the ideal gas law due to intermolecular forces and molec-
+fluid_power_systems_handbook.pdf (Line 1601): dry nitrogen gas operating at a nominal system pressure of 3000 psi under standard ambient
+fluid_power_systems_handbook.pdf (Line 1609): system with a minimum operating limit of 1500 psi requires a nominal accumulator nitrogen
+fluid_power_systems_handbook.pdf (Line 1610): precharge pressure of exactly 1000 psi when calibrated at a baseline temperature of 60◦F.
+fluid_power_systems_handbook.pdf (Line 1654): plumbing, with a precise cracking pressure calibrated to exactly 3400 psi. The anti-skid braking
+fluid_power_systems_handbook.pdf (Line 1705): Hydrostatic proof pressure testing for a standard 3000 psi aircraft fluid power system must be
+fluid_power_systems_handbook.pdf (Line 1706): executed by pressurizing the isolated network to an elevated pressure of exactly 4500 psi (which
+fluid_power_systems_handbook.pdf (Line 1732): system operating pressure registers at a nominal value of 3000 psi (which equates to 20.7 MPa)
+fluid_power_systems_handbook.pdf (Line 1733): with an allowable operational tolerance window of plus or minus 50 psi, which must be verified
+fluid_power_systems_handbook.pdf (Line 1736): between a minimum of 45 psi and a maximum of 50 psi when the aircraft is configured in a
+fluid_power_systems_handbook.pdf (Line 1738): hydrostatic proof pressure test must be executed at a structural pressure of exactly 4500 psi
+fluid_power_systems_handbook.pdf (Line 1752): 180 inch-pounds to a maximum of 220 inch-pounds (which equates to 20.3 to 24.8 Nm), and this
+fluid_power_systems_handbook.pdf (Line 1765): verified against temperature-adjustment curves and calibrated to exactly 1000 psi when mea-
+fluid_power_systems_handbook.pdf (Line 1767): boundary of 1500 psi, ensuring the hydraulic system is fully depressurized to zero before attach-
+fluid_power_systems_handbook.pdf (Line 1769): and Shutoff Valve (PRSOV) to maintain a nominal duct pressure of exactly 42 psi with an
+fluid_power_systems_handbook.pdf (Line 1770): allowable operational tolerance window of plus or minus 2 psi. The downstream pre-cooler heat
+fluid_power_systems_handbook.pdf (Line 1774): automatically activate at a strict safety cutoff threshold of exactly 65 psi or a temperature limit
+fluid_power_systems_handbook.pdf (Line 1784): ring operating at a nominal pressure of 3000 psi is strictly limited to a maximum dimension of
+fluid_power_systems_handbook.pdf (Line 1785): exactly 0.004 inches (which equates to 0.1 mm).
+landing_gear_brakes_handbook.pdf (Line 1900): actuators is standardly calibrated to 3000 psi, though modern high-efficiency airframes utilize an
+landing_gear_brakes_handbook.pdf (Line 1901): elevated nominal architecture of 5000 psi. The automatic hydraulic shuttle valves are calibrated
+landing_gear_brakes_handbook.pdf (Line 1903): pressure drops below a critical threshold limit of exactly 1500 psi within a 3000 psi nominal
+landing_gear_brakes_handbook.pdf (Line 2020): when tested at the maximum system operating pressure of 3000 psi or 5000 psi. The internal
+landing_gear_brakes_handbook.pdf (Line 2190): ranging from a minimum of 0.004 inches to a maximum of 0.010 inches (0.10 to 0.25 mm).
+landing_gear_brakes_handbook.pdf (Line 2192): standardly ranging between a minimum of 400 foot-pounds and a maximum of 600 foot-pounds
+landing_gear_brakes_handbook.pdf (Line 2195): 150 foot-pounds and a maximum of 250 foot-pounds, and must be secured with safety wire.
+landing_gear_brakes_handbook.pdf (Line 2234): or a precision steel ruler with a measurement resolution of at least 0.020 inches while the brake
+landing_gear_brakes_handbook.pdf (Line 2235): actuator cylinders are continuously pressurized to the full system operating pressure of 3000 psi
+landing_gear_brakes_handbook.pdf (Line 2236): or 5000 psi. Structural wear limits for specific approved brake disc components are defined by
+landing_gear_brakes_handbook.pdf (Line 2238): 30-89 brake disc assembly is strictly limited to a minimum threshold of 0.235 inches (5.97 mm).
+landing_gear_brakes_handbook.pdf (Line 2240): strictly limited to a minimum threshold of 0.312 inches (7.92 mm). Any main landing gear brake
+landing_gear_brakes_handbook.pdf (Line 2242): threshold of 0.0 inches (flush with the caliper guide face) during a pre-flight inspection must
+landing_gear_brakes_handbook.pdf (Line 2288): to successfully detect a surface fatigue crack as small as 0.050 inches in length. Magnetic Particle
+landing_gear_brakes_handbook.pdf (Line 2294): exceeding a threshold limit of exactly 0.0 inches of crack propagation must be immediately re-
+landing_gear_brakes_handbook.pdf (Line 2339): of 0.5 inches to a maximum of 1.0 inch, before the master cylinder pistons begin to stroke. The
+landing_gear_brakes_handbook.pdf (Line 2341): phosphate ester fluid at a regulated constant pressure adjusted between a minimum of 50 psi
+landing_gear_brakes_handbook.pdf (Line 2342): and a maximum of 100 psi to thoroughly flush out entrained gas bubbles.
+landing_gear_brakes_handbook.pdf (Line 2345): and must maintain that pressure without a decay exceeding 50 psi over a continuous dwell hold
+landing_gear_brakes_handbook.pdf (Line 2350): clearance of exactly 0.125 inches (3.17 mm). Nose gear steering rigging metrics require the
+landing_gear_brakes_handbook.pdf (Line 2351): steering horn to achieve an angular deflection limit of exactly 30 degrees left and right, controlled
+landing_gear_brakes_handbook.pdf (Line 2404): must not exceed a maximum allowable limit of 100 psi over a continuous, static evaluation
+landing_gear_brakes_handbook.pdf (Line 2407): minimum of 0.040 inches to a maximum of 0.080 inches (1.0 to 2.0 mm). Normal landing gear
+landing_gear_brakes_handbook.pdf (Line 2453): 2 mM T OWV 2
+landing_gear_brakes_handbook.pdf (Line 2464): rounds; the main gear shock strut visible chrome piston height must measure exactly 4.50 inches
+landing_gear_brakes_handbook.pdf (Line 2465): with an allowable tolerance window of plus or minus 0.25 inches under standard static curb
+landing_gear_brakes_handbook.pdf (Line 2467): 250 psi (1.7 MPa). The nose gear shock strut visible chrome piston height must measure ex-
+landing_gear_brakes_handbook.pdf (Line 2468): actly 3.25 inches with an allowable tolerance window of plus or minus 0.25 inches, and must be
+landing_gear_brakes_handbook.pdf (Line 2469): pressurized with dry nitrogen gas to a nominal charge pressure of exactly 180 psi (1.2 MPa).
+landing_gear_brakes_handbook.pdf (Line 2540): inches with an allowable operational tolerance window of plus or minus 0.25 inches, and this
+landing_gear_brakes_handbook.pdf (Line 2543): maintain a stable pressure baseline of exactly 250 psi (which equates to 1.7 MPa), and servicing
+landing_gear_brakes_handbook.pdf (Line 2546): piston extension height must measure exactly 3.25 inches with an allowable operational tolerance
+landing_gear_brakes_handbook.pdf (Line 2548): must maintain a stable pressure baseline of exactly 180 psi (which equates to 1.2 MPa), verified
+landing_gear_brakes_handbook.pdf (Line 2553): threshold of exactly 0.235 inches (which equates to 5.97 mm), and this dimension must be
+landing_gear_brakes_handbook.pdf (Line 2556): 103 brake disc assembly is established at a minimum threshold of exactly 0.312 inches (which
+landing_gear_brakes_handbook.pdf (Line 2557): equates to 7.92 mm), verified via a calibrated dial micrometer. The internal wear profile of the
+landing_gear_brakes_handbook.pdf (Line 2560): limit of exactly 0.002 inches over the nominal manufacturer blueprint dimension. The manual
+landing_gear_brakes_handbook.pdf (Line 2573): adjusted to fall within a tight operational window, ranging from a minimum of 0.040 inches to a
+landing_gear_brakes_handbook.pdf (Line 2574): maximum of 0.080 inches (which equates to 1.0 to 2.0 mm), and this clearance must be verified
+landing_gear_brakes_handbook.pdf (Line 2578): 0.125 inches (which equates to 3.17 mm). Nose gear steering rigging boundaries require that the
+landing_gear_brakes_handbook.pdf (Line 2579): steering horn achieve an angular deflection limit of exactly 30 degrees of maximum rotation left
+landing_gear_brakes_handbook.pdf (Line 2581): tension cartridge adjusted to deliver a precise physical preload value of exactly 50 inch-pounds.
+landing_gear_brakes_handbook.pdf (Line 2593): ranging from a minimum of 250 inch-pounds to a maximum upper limit of 600 inch-pounds,
+powerplant_maintenance_handbook.pdf (Line 2776): edge nick or dent must not exceed a maximum allowable depth limit of 0.030 inches and a
+powerplant_maintenance_handbook.pdf (Line 2777): maximum linear length limit of 0.250 inches before localized blending operations are required.
+powerplant_maintenance_handbook.pdf (Line 2788): a minimum of 0.080 inches to a maximum of 0.150 inches when measured under ambient static
+powerplant_maintenance_handbook.pdf (Line 2795): below a peak threshold limit of 1.5 Inches Per Second (IPS).
+powerplant_maintenance_handbook.pdf (Line 2846): that remains within a highly restrictive tolerance window of plus or minus 0.5 degrees (±0.5◦)
+powerplant_maintenance_handbook.pdf (Line 2856): exceeds a maximum depth limit of 0.015 inches or a maximum linear width limit of 0.050 inches,
+powerplant_maintenance_handbook.pdf (Line 2913): a maximum limit of 1.5 inches, and provided that the crack tip has not propagated into any
+powerplant_maintenance_handbook.pdf (Line 2974): 0.000 inches for any cracks; the identification of a single surface fatigue crack or thermal craze
+powerplant_maintenance_handbook.pdf (Line 3023): operational threshold of 1500 psi when the engine is operating at maximum takeoff thrust. The
+powerplant_maintenance_handbook.pdf (Line 3029): ranging from a minimum of 80 psi to a maximum of 120 psi. Quantitative calibration of the fuel
+powerplant_maintenance_handbook.pdf (Line 3034): within a tight range between a minimum of 25 psi and a maximum of 30 psi.
+powerplant_maintenance_handbook.pdf (Line 3085): ness gauge to fall within an operational range from a minimum of 0.016 inches to a maximum of
+powerplant_maintenance_handbook.pdf (Line 3086): 0.021 inches, with an absolute maximum wear erosion limit of exactly 0.040 inches. Maintenance
+powerplant_maintenance_handbook.pdf (Line 3134): must deliver oil at a regulated pressure ranging between a minimum of 50 psi and a maximum
+powerplant_maintenance_handbook.pdf (Line 3135): of 60 psi above the internal bearing compartment cavity pressure. Under full power operating
+powerplant_maintenance_handbook.pdf (Line 3136): conditions, the main oil pressure must be maintained within a green-arc envelope of 60 psi to
+powerplant_maintenance_handbook.pdf (Line 3137): 90 psi, with an idle oil pressure lower limit of 10 psi to 25 psi.
+powerplant_maintenance_handbook.pdf (Line 3143): cracking pressure threshold set to actuate between a minimum of 20 psi and a maximum of 30
+powerplant_maintenance_handbook.pdf (Line 3255): threshold limit of exactly 1.5 Inches Per Second (IPS).
+powerplant_maintenance_handbook.pdf (Line 3275): cascades at an angle of approximately 45 degrees. The actuation of the massive translating cowl
+powerplant_maintenance_handbook.pdf (Line 3306): discharge angle of approximately 45 degrees. Mechanical free-play and backlash within the ball
+powerplant_maintenance_handbook.pdf (Line 3401): electrode gap falls within a strict clearance range from a minimum of 0.016 inches to a maxi-
+powerplant_maintenance_handbook.pdf (Line 3402): mum of 0.021 inches (0.4 to 0.5 mm), verified utilizing a calibrated wire thickness gauge. The
+powerplant_maintenance_handbook.pdf (Line 3403): installation torque for the 18mm Champion spark plug mating threads must be tightly main-
+powerplant_maintenance_handbook.pdf (Line 3404): tained between a minimum of 25 foot-pounds and a maximum of 30 foot-pounds (33.8 to 40.6
+powerplant_maintenance_handbook.pdf (Line 3406): must be adjusted to an exact position between a minimum of 20 degrees and a maximum of 25
+powerplant_maintenance_handbook.pdf (Line 3412): round dimension must not exceed a maximum limit of 0.003 inches (0.076 mm), verified utilizing
+powerplant_maintenance_handbook.pdf (Line 3414): measured within a range from a minimum of 0.015 inches to a maximum of 0.025 inches (0.38
+powerplant_maintenance_handbook.pdf (Line 3415): to 0.63 mm). The engine oil pressure operational parameters are strictly bounded: the idle oil
+powerplant_maintenance_handbook.pdf (Line 3416): pressure lower limit is specified between a minimum of 10 psi and a maximum of 25 psi, while
+powerplant_maintenance_handbook.pdf (Line 3418): of 60 psi to a maximum of 90 psi. The full power oil temperature must be maintained within a
+powerplant_maintenance_handbook.pdf (Line 3421): bypass circuit must be maintained between a minimum of 25 psi and a maximum of 30 psi.
+powerplant_maintenance_handbook.pdf (Line 3423): damage to a maximum depth of 0.015 inches and a maximum width of 0.050 inches. Borescope
+powerplant_maintenance_handbook.pdf (Line 3424): visual inspection of Stage 1 Turbine blades enforces an absolute limit of 0.000 inches for any
+structural_repair_handbook.pdf (Line 3695): ties, establishing an ultimate tensile strength that exceeds a baseline threshold of 280,000 psi.
+structural_repair_handbook.pdf (Line 3754): must apply a continuous isostatic positive pressure up to a maximum limit of 100 psi, while the
+structural_repair_handbook.pdf (Line 3756): 22 inches of mercury to a maximum of 29 inches of mercury (≥22inHg) throughout the primary
+structural_repair_handbook.pdf (Line 3884): inches and a maximum of -0.0000 inches relative to nominal specifications. The internal sur-
+structural_repair_handbook.pdf (Line 3891): minimum of 0.1890 inches to a maximum of 0.1900 inches. To prevent a catastrophic knife-
+structural_repair_handbook.pdf (Line 3894): 0.005 inches for thin sheet panels, or meet the specific minimum percentage thickness profiles
+structural_repair_handbook.pdf (Line 3956): aircraft skin surface by more than a maximum limit of exactly 0.003 inches. The mechanical
+structural_repair_handbook.pdf (Line 4011): to remain within a strict thickness range from a minimum of 0.003 inches to a maximum of 0.008
+structural_repair_handbook.pdf (Line 4131): lish a smooth, gradual slope transition ratio specified at a minimum of 1:20 (1 inch of depth
+structural_repair_handbook.pdf (Line 4132): drop per 20 inches of horizontal blend length) to prevent stress concentration.
+structural_repair_handbook.pdf (Line 4182): than 0.100 inches is classified as Barely Visible Impact Damage (BVID), which mandates the
+structural_repair_handbook.pdf (Line 4261): perfect, burr-free stop-drill crack tip diameter measuring exactly 0.125 inches (1/8-inch). Every
+structural_repair_handbook.pdf (Line 4305): burr-free stop-drill crack tip diameter measuring exactly 0.125 inches (1/8-inch). The structural
+structural_repair_handbook.pdf (Line 4315): a minimum of 0.1890 inches to a maximum of 0.1900 inches. Following collar installation, the

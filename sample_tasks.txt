@@ -1,0 +1,38 @@
+Case 1 (PASS) - Avionics Wire Ampacity & Resistance
+Transcript: "Routed a new AWG 16 conductor utilizing a 19/29 stranding configuration. The direct current resistance of the wire was measured at 3.95 ohms per 1000 feet at 20C. Peak current load under test is 11.5 amperes in free air."
+
+
+Case 2 (FAIL) - Avionics Wire Ampacity Exceeded
+Transcript: "Completed installation of an AWG 20 conductor with 19/32 stranding. Measured wire resistance is 9.80 ohms per 1000 feet at 20C. The circuit drew a continuous current load of 8.0 amperes in free air."
+
+
+Case 3 (PASS) - Ground Stud Torque & Bond Resistance
+Transcript: "Installed a 10-32 steel ground stud nut on a Class R electrical return path. Torqued the grounding hardware to 22.5 inch-pounds. The electrical bonding resistance of the stud assembly measured 1.9 milliohms."
+
+
+Case 4 (FAIL) - Under-torqued 1/4-28 Ground Stud Nut
+Transcript: "Completed grounding termination on a Class C lightning protection structure. Installed a 1/4-28 ground stud nut and torqued the assembly to 32.0 inch-pounds. Measured bonding resistance is 1.1 milliohms."
+
+
+Case 5 (PASS) - 1/2-inch CRES Flareless Tubing Torque & Clearance
+Transcript: "Completed installation of a 1/2-inch CRES flareless tube line. Torqued the B-nut fitting to 200 inch-pounds using a dial torque wrench. Measured lateral clearance to the adjacent wire bundle is 0.75 inches, and separation from the flight control cables is 2.5 inches."
+
+
+Case 6 (FAIL) - Tubing Clearance to Wire Harness Too Small
+Transcript: "Installed a 1/2-inch CRES flareless line on the return side. Torqued the fitting B-nut to 190 inch-pounds. Measured separation from the moving flight control cables is 2.2 inches. Clearance from the adjacent electrical wire harness is 0.35 inches."
+
+
+Case 7 (PASS) - Cleveland Wheel Tie-bolts Star Pattern Torque
+Transcript: "Assembled split wheel halves of Cleveland wheel hub. Torqued the threaded tie-bolts in a multi-stage sequential star pattern to a final specification of 350 inch-pounds using a dial torque wrench. Secured the assembly with lockwire."
+
+
+Case 8 (FAIL) - Over-torqued Cleveland Wheel Tie-bolts
+Transcript: "Completed assembly of Cleveland split wheel hub sections. Torqued all high-strength tie-bolts in a star pattern to a final torque of 650 inch-pounds using a dial torque wrench. Safety wire has been applied."
+
+
+Case 9 (PASS) - Spark Plug Mating Thread Torque & Gap
+Transcript: "Installed 18mm Champion spark plugs in the engine cylinder. Verified the electrode gaps using a wire thickness gauge at 0.018 inches. Torqued the spark plug threads to 27 foot-pounds and applied approved anti-seize compound."
+
+
+Case 10 (FAIL) - Stop-Drill Hole Too Small
+Transcript: "Performed crack repair on the fuselage skin. Drilled a stop-drill hole at the crack tip using a 0.090 inch drill bit to relieve stress. Hole surface was inspected and verified burr-free."

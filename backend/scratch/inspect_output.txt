@@ -1,0 +1,178 @@
+Latest Evaluation ID: eval-NPI-2026-05-25T03:03:58
+
+================================================================================
+TEST idx: 0 | Transcript: 'Routed a new AWG 16 conductor utilizing a 19/29 stranding co...'
+Success: False | Error: Custom function returned false
+const start = output.indexOf('{');
+const end = output.lastIndexOf('}');
+if (start === -1 || end === -1) return false;
+const data = JSON.parse(output.substring(start, end + 1));
+if (data.validation.status !== 'PASS') return false;
+const params = data.record.compliance_parameters || [];
+const hasResistance = params.some(p => p.label.toLowerCase().includes('resistance') && p.value.includes('3.95') && p.status === 'PASS');
+const hasAmpacity = params.some(p => (p.label.toLowerCase().includes('ampacity') || p.label.toLowerCase().includes('current') || p.label.toLowerCase().includes('load')) && p.value.includes('11.5') && p.status === 'PASS');
+return hasResistance && hasAmpacity;
+Grading result reason: Custom function returned false
+const start = output.indexOf('{');
+const end = output.lastIndexOf('}');
+if (start === -1 || end === -1) return false;
+const data = JSON.parse(output.substring(start, end + 1));
+if (data.validation.status !== 'PASS') return false;
+const params = data.record.compliance_parameters || [];
+const hasResistance = params.some(p => p.label.toLowerCase().includes('resistance') && p.value.includes('3.95') && p.status === 'PASS');
+const hasAmpacity = params.some(p => (p.label.toLowerCase().includes('ampacity') || p.label.toLowerCase().includes('current') || p.label.toLowerCase().includes('load')) && p.value.includes('11.5') && p.status === 'PASS');
+return hasResistance && hasAmpacity;
+--------------------------------------------------------------------------------
+LLM Output:
+We need to parse the transcript and AMM context. The AMM specifies for AWG 16 conductor with 19/29 stranding: max DC resistance 4.02 ohms/1000 ft at 20°C, and max single-wire free-air ampacity 13.0 A. Technician reports: measured DC resistance 3.95 ohms/1000 ft at 20C, peak current load 11.5 A in free air. Both are within limits. So compliance passes. Part name: likely "AWG 16 conductor" but specific part number not given. Action: "Routed a new ...". ATA chapter? Not given, null. Compliance parameters: DC resistance and ampacity. Status: PASS. No issues. Output JSON.
+================================================================================
+
+================================================================================
+TEST idx: 1 | Transcript: 'Completed installation of an AWG 20 conductor with 19/32 str...'
+Success: False | Error: Custom function returned false
+const start = output.indexOf('{');
+const end = output.lastIndexOf('}');
+if (start === -1 || end === -1) return false;
+const data = JSON.parse(output.substring(start, end + 1));
+if (data.validation.status !== 'FAIL') return false;
+const params = data.record.compliance_parameters || [];
+const hasResistance = params.some(p => p.label.toLowerCase().includes('resistance') && p.value.includes('9.80') && p.status === 'PASS');
+const hasAmpacity = params.some(p => (p.label.toLowerCase().includes('ampacity') || p.label.toLowerCase().includes('current') || p.label.toLowerCase().includes('load')) && p.value.includes('8.0') && p.status === 'FAIL');
+const issues = data.validation.details.issues || [];
+const hasIssue = issues.length > 0 && issues.some(i => i.toLowerCase().includes('ampacity') || i.toLowerCase().includes('ampere') || i.toLowerCase().includes('limit') || i.toLowerCase().includes('exceed'));
+return hasResistance && hasAmpacity && hasIssue;
+Grading result reason: Custom function returned false
+const start = output.indexOf('{');
+const end = output.lastIndexOf('}');
+if (start === -1 || end === -1) return false;
+const data = JSON.parse(output.substring(start, end + 1));
+if (data.validation.status !== 'FAIL') return false;
+const params = data.record.compliance_parameters || [];
+const hasResistance = params.some(p => p.label.toLowerCase().includes('resistance') && p.value.includes('9.80') && p.status === 'PASS');
+const hasAmpacity = params.some(p => (p.label.toLowerCase().includes('ampacity') || p.label.toLowerCase().includes('current') || p.label.toLowerCase().includes('load')) && p.value.includes('8.0') && p.status === 'FAIL');
+const issues = data.validation.details.issues || [];
+const hasIssue = issues.length > 0 && issues.some(i => i.toLowerCase().includes('ampacity') || i.toLowerCase().includes('ampere') || i.toLowerCase().includes('limit') || i.toLowerCase().includes('exceed'));
+return hasResistance && hasAmpacity && hasIssue;
+--------------------------------------------------------------------------------
+LLM Output:
+We need to parse the transcript and compare with AMM context. The transcript: "Completed installation of an AWG 20 conductor with 19/32 stranding. Measured wire resistance is 9.80 ohms per 1000 feet at 20C. The circuit drew a continuous current load of 8.0 amperes in free air."
+
+AMM context: "An AWG 20 conductor utilizing a 19/32 stranding configuration must exhibit a maximum direct current resistance of 9.95 ohms per 1000 feet at 20°C, and is limited to a maximum single-wire free-air ampacity of 7.5 amperes."
+
+So two parameters: resistance and ampacity. Technician value for resistance: 9.80 ohms, spec max 9.95, so PASS. Ampacity: 8.0 amperes, spec max 7.5, so FAIL. So overall validation status FAIL.
+
+Record: part_name? Since it's a conductor, maybe "AWG 20 Conductor" or "Wire". Part_number unknown, null. ATA chapter? Possibly electrical? Could be null. Action_performed: "Installation of an AWG 20 conductor". Compliance_parameters: two entries.
+
+Notes: could note that continuous current exceeds ampacity limit.
+
+Output JSON exactly as specified.
+================================================================================
+
+================================================================================
+TEST idx: 2 | Transcript: 'Installed a 10-32 steel ground stud nut on a Class R electri...'
+Success: False | Error: Custom function returned false
+const start = output.indexOf('{');
+const end = output.lastIndexOf('}');
+if (start === -1 || end === -1) return false;
+const data = JSON.parse(output.substring(start, end + 1));
+if (data.validation.status !== 'PASS') return false;
+const params = data.record.compliance_parameters || [];
+const hasTorque = params.some(p => p.label.toLowerCase().includes('torque') && p.value.includes('22.5') && p.status === 'PASS');
+const hasResistance = params.some(p => (p.label.toLowerCase().includes('bonding') || p.label.toLowerCase().includes('resistance') || p.label.toLowerCase().includes('electrical')) && p.value.includes('1.9') && p.status === 'PASS');
+return hasTorque && hasResistance;
+Grading result reason: Custom function returned false
+const start = output.indexOf('{');
+const end = output.lastIndexOf('}');
+if (start === -1 || end === -1) return false;
+const data = JSON.parse(output.substring(start, end + 1));
+if (data.validation.status !== 'PASS') return false;
+const params = data.record.compliance_parameters || [];
+const hasTorque = params.some(p => p.label.toLowerCase().includes('torque') && p.value.includes('22.5') && p.status === 'PASS');
+const hasResistance = params.some(p => (p.label.toLowerCase().includes('bonding') || p.label.toLowerCase().includes('resistance') || p.label.toLowerCase().includes('electrical')) && p.value.includes('1.9') && p.status === 'PASS');
+return hasTorque && hasResistance;
+--------------------------------------------------------------------------------
+LLM Output:
+We need to parse the transcript and context. The technician installed a 10-32 steel ground stud nut on a Class R electrical return path. Torqued to 22.5 inch-pounds. Bonding resistance measured 1.9 milliohms.
+
+Context: Class R electrical bond max 2.5 milliohms. 10-32 steel ground stud nut torque min 20.0, max 25.0 inch-pounds.
+
+So two parameters: torque and bonding resistance. Both within spec? Torque: 22.5 between 20 and 25 -> PASS. Bonding resistance: 1.9 <= 2.5 -> PASS. No other issues. So overall PASS.
+
+Part name? "10-32 steel ground stud nut" or "ground stud nut"? Possibly "ground stud nut". Part number unknown, null. ATA chapter? Not given. Action performed: "Installed a 10-32 steel ground stud nut" -> "Installation of ground stud nut". Compliance parameters: list torque and bonding resistance. Notes: null.
+
+Output JSON accordingly.
+================================================================================
+
+================================================================================
+TEST idx: 3 | Transcript: 'Completed grounding termination on a Class C lightning prote...'
+Success: False | Error: Custom function returned false
+const start = output.indexOf('{');
+const end = output.lastIndexOf('}');
+if (start === -1 || end === -1) return false;
+const data = JSON.parse(output.substring(start, end + 1));
+if (data.validation.status !== 'FAIL') return false;
+const params = data.record.compliance_parameters || [];
+const hasTorque = params.some(p => p.label.toLowerCase().includes('torque') && p.value.includes('32.0') && p.status === 'FAIL');
+const hasResistance = params.some(p => (p.label.toLowerCase().includes('bonding') || p.label.toLowerCase().includes('resistance') || p.label.toLowerCase().includes('electrical')) && p.value.includes('1.1') && p.status === 'PASS');
+const issues = data.validation.details.issues || [];
+const hasIssue = issues.length > 0 && issues.some(i => i.toLowerCase().includes('torque') || i.toLowerCase().includes('under') || i.toLowerCase().includes('below') || i.toLowerCase().includes('minimum'));
+return hasTorque && hasResistance && hasIssue;
+Grading result reason: Custom function returned false
+const start = output.indexOf('{');
+const end = output.lastIndexOf('}');
+if (start === -1 || end === -1) return false;
+const data = JSON.parse(output.substring(start, end + 1));
+if (data.validation.status !== 'FAIL') return false;
+const params = data.record.compliance_parameters || [];
+const hasTorque = params.some(p => p.label.toLowerCase().includes('torque') && p.value.includes('32.0') && p.status === 'FAIL');
+const hasResistance = params.some(p => (p.label.toLowerCase().includes('bonding') || p.label.toLowerCase().includes('resistance') || p.label.toLowerCase().includes('electrical')) && p.value.includes('1.1') && p.status === 'PASS');
+const issues = data.validation.details.issues || [];
+const hasIssue = issues.length > 0 && issues.some(i => i.toLowerCase().includes('torque') || i.toLowerCase().includes('under') || i.toLowerCase().includes('below') || i.toLowerCase().includes('minimum'));
+return hasTorque && hasResistance && hasIssue;
+--------------------------------------------------------------------------------
+LLM Output:
+We need to parse the transcript and AMM context. The technician says: "Completed grounding termination on a Class C lightning protection structure. Installed a 1/4-28 ground stud nut and torqued the assembly to 32.0 inch-pounds. Measured bonding resistance is 1.1 milliohms."
+
+AMM context: For Class C electrical bond, maximum 1.5 milliohms. For 1/4-28 ground stud nut, torque range 40.0-50.0 inch-pounds.
+
+So we have two parameters: torque and bonding resistance. Torque logged as 32.0 inch-pounds, which is below the minimum 40.0. So FAIL. Bonding resistance 1.1 mOhm is within <=1.5, so PASS. Overall validation FAIL because torque out of spec.
+
+Part name: "1/4-28 ground stud nut" or "ground stud nut". But transcript says "grounding termination on a Class C lightning protection structure". The specific part is the ground stud nut. Part number not given, so null. ATA chapter? Not given, maybe null. Action performed: "Installed and torqued ground stud nut, measured bonding resistance". So action_performed: "Grounding termination installation and measurement".
+
+Compliance parameters: two entries. Label: "Torque", value "32.0 inch-pounds", spec "40.0-50.0 inch-pounds", status "FAIL". Label: "Bonding Resistance", value "1.1 milliohms", spec "≤ 1.5 milliohms", status "PASS".
+
+Notes: maybe note that torque is below minimum. Or null.
+
+Validation status: FAIL, issues: ["Torque value 32.0 inch-pounds is below minimum requirement of 40.0 inch-pounds."]
+
+Now output JSON exactly as schema.
+================================================================================
+
+================================================================================
+TEST idx: 4 | Transcript: 'Completed installation of a 1/2-inch CRES flareless tube lin...'
+Success: False | Error: Custom function returned false
+const start = output.indexOf('{');
+const end = output.lastIndexOf('}');
+if (start === -1 || end === -1) return false;
+const data = JSON.parse(output.substring(start, end + 1));
+if (data.validation.status !== 'PASS') return false;
+const params = data.record.compliance_parameters || [];
+const hasTorque = params.some(p => p.label.toLowerCase().includes('torque') && p.value.includes('200') && p.status === 'PASS');
+const hasClearance = params.some(p => p.label.toLowerCase().includes('clearance') && p.value.includes('0.75') && p.status === 'PASS');
+const hasSeparation = params.some(p => (p.label.toLowerCase().includes('separation') || p.label.toLowerCase().includes('control')) && p.value.includes('2.5') && p.status === 'PASS');
+return hasTorque && hasClearance && hasSeparation;
+Grading result reason: Custom function returned false
+const start = output.indexOf('{');
+const end = output.lastIndexOf('}');
+if (start === -1 || end === -1) return false;
+const data = JSON.parse(output.substring(start, end + 1));
+if (data.validation.status !== 'PASS') return false;
+const params = data.record.compliance_parameters || [];
+const hasTorque = params.some(p => p.label.toLowerCase().includes('torque') && p.value.includes('200') && p.status === 'PASS');
+const hasClearance = params.some(p => p.label.toLowerCase().includes('clearance') && p.value.includes('0.75') && p.status === 'PASS');
+const hasSeparation = params.some(p => (p.label.toLowerCase().includes('separation') || p.label.toLowerCase().includes('control')) && p.value.includes('2.5') && p.status === 'PASS');
+return hasTorque && hasClearance && hasSeparation;
+--------------------------------------------------------------------------------
+LLM Output:
+We need to parse the transcript and compare with AMM context. The technician mentions: installation of 1/2-inch CRES flareless tube line, torqued B-nut to 200 inch-pounds, clearance to wire bundle 0.75 inches, separation from flight control cables 2.5 inches. AMM says torque 180-220 in-lb, clearance min 0.5 in from wire, separation min 2.0 in from moving cables. All values are within spec: torque 200 in-lb (180-220), clearance 0.75 > 0.5, separation 2.5 > 2.0. So all PASS. No issues. Record part_name likely "1/2-inch CRES flareless tube line" or "flareless fitting"? The transcript says "installation of a 1/2-inch CRES flareless tube line" and "B-nut". So part_name could be "Flareless Tube Line" or "B-nut"? Let's choose "1/2-inch CRES Flareless Tube Line" as part_name. Part_number not given, so null. ATA chapter not given. Action performed: "Installation of tube line and torquing B-nut". Compliance parameters: torque, clearance to wire harness, separation from flight control cables. Each with label, value, spec, status. Notes null. Validation status PASS, issues empty.
+================================================================================
