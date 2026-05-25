@@ -122,9 +122,15 @@ async def process_text(
 @router.get("/pdf/{filename}")
 async def get_pdf(filename: str) -> FileResponse:
     """Serves a PDF manual inline in the browser."""
-    # Search the data directory at the project root level
-    data_dir = os.path.realpath(os.path.join(os.path.dirname(__file__), "..", "..", "..", "data"))
+    # Try resolving relative to backend directory (works in container as /app/data, and locally)
+    data_dir = os.path.realpath(os.path.join(os.path.dirname(__file__), "..", "..", "data"))
     filepath = os.path.join(data_dir, filename)
+
+    # Fallback to project root level data directory (works in local dev)
+    if not os.path.exists(filepath):
+        alt_data_dir = os.path.realpath(os.path.join(os.path.dirname(__file__), "..", "..", "..", "data"))
+        filepath = os.path.join(alt_data_dir, filename)
+        data_dir = alt_data_dir
 
     if not os.path.exists(filepath):
         logger.error(f"Requested PDF file not found: {filename} (searched in {data_dir})")

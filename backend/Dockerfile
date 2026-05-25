@@ -29,6 +29,7 @@ RUN pip install --no-cache-dir --upgrade pip && \
 COPY app ./app
 COPY migrations ./migrations
 COPY alembic.ini ./
+COPY data ./data
 
 # Create static directory for uploads
 RUN mkdir -p static
