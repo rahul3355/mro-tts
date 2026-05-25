@@ -392,10 +392,7 @@ python-multipart==0.0.29
     #   mro-tts-backend (pyproject.toml)
     #   arize-phoenix
     #   mcp
-pywin32==311
-    # via mcp
-pywin32-ctypes==0.2.3
-    # via keyring
+# pywin32 and pywin32-ctypes omitted for cross-platform Linux compatibility
 pyyaml==6.0.3
     # via
     #   arize-phoenix
