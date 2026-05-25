@@ -80,4 +80,9 @@ app.include_router(records_router, prefix="/api/v1/records", tags=["records"])
 @app.get("/health", status_code=status.HTTP_200_OK)
 async def health_check() -> dict[str, str]:
     """Basic service health liveness status verification probe."""
-    return {"status": "healthy", "service": "mro-tts-backend"}
+    db_ok = await verify_db_connection()
+    return {
+        "status": "healthy" if db_ok else "unhealthy",
+        "service": "mro-tts-backend",
+        "database": "connected" if db_ok else "disconnected",
+    }

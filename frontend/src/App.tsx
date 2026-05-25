@@ -1,4 +1,4 @@
-import { useState, useCallback } from "react";
+import { useState, useCallback, useEffect } from "react";
 import { RecordButton } from "./features/terminal/components/RecordButton";
 import { TranscriptView } from "./features/terminal/components/TranscriptView";
 import { AMMReferences } from "./features/terminal/components/AMMReferences";
@@ -12,6 +12,7 @@ const API_BASE_URL = import.meta.env.VITE_API_URL || "http://localhost:8000";
 
 export default function App() {
   const [sessionConnectionId, setSessionConnectionId] = useState<string | null>(null);
+  const [systemStatus, setSystemStatus] = useState<'checking' | 'active' | 'degraded' | 'offline'>('checking');
 
   const connectionId = useTerminalStore((s) => s.connectionId);
   const setStoreConnectionId = useTerminalStore((s) => s.setConnectionId);
@@ -22,6 +23,30 @@ export default function App() {
   const updateTranscript = useTerminalStore((s) => s.updateTranscript);
   const theme = useTerminalStore((s) => s.theme);
   const toggleTheme = useTerminalStore((s) => s.toggleTheme);
+
+  const checkSystemHealth = useCallback(async () => {
+    try {
+      const response = await fetch(`${API_BASE_URL}/health`);
+      if (!response.ok) {
+        setSystemStatus('offline');
+        return;
+      }
+      const data = await response.json();
+      if (data.status === 'healthy') {
+        setSystemStatus('active');
+      } else {
+        setSystemStatus('degraded');
+      }
+    } catch (err) {
+      setSystemStatus('offline');
+    }
+  }, []);
+
+  useEffect(() => {
+    checkSystemHealth();
+    const interval = setInterval(checkSystemHealth, 25000);
+    return () => clearInterval(interval);
+  }, [checkSystemHealth]);
 
   // Subscribe to SSE stream if connection ID is allocated
   useSSEStream(sessionConnectionId);
@@ -138,10 +163,30 @@ export default function App() {
               </span>
             </div>
           )}
-          <div className="flex items-center space-x-1.5 bg-brand-panel px-3 py-1 rounded border border-brand-border text-brand-green">
-            <Radio className="h-3.5 w-3.5 animate-pulse" />
-            <span className="font-bold">SYSTEM ACTIVE</span>
-          </div>
+          {systemStatus === 'active' && (
+            <div className="flex items-center space-x-1.5 bg-brand-panel px-3 py-1 rounded border border-brand-border text-brand-green" title="API backend and database are online.">
+              <Radio className="h-3.5 w-3.5 animate-pulse" />
+              <span className="font-bold">SYSTEM ACTIVE</span>
+            </div>
+          )}
+          {systemStatus === 'degraded' && (
+            <div className="flex items-center space-x-1.5 bg-brand-panel px-3 py-1 rounded border border-brand-border text-brand-amber" title="API backend is online, but Neon Database connection has failed.">
+              <Radio className="h-3.5 w-3.5 animate-pulse" />
+              <span className="font-bold">DB DEGRADED</span>
+            </div>
+          )}
+          {systemStatus === 'offline' && (
+            <div className="flex items-center space-x-1.5 bg-brand-panel px-3 py-1 rounded border border-brand-border text-brand-red" title="Cannot connect to API backend. It may be sleeping or offline.">
+              <Radio className="h-3.5 w-3.5" />
+              <span className="font-bold">SYSTEM OFFLINE</span>
+            </div>
+          )}
+          {systemStatus === 'checking' && (
+            <div className="flex items-center space-x-1.5 bg-brand-panel px-3 py-1 rounded border border-brand-border text-brand-text" title="Verifying system status...">
+              <Radio className="h-3.5 w-3.5 animate-pulse" />
+              <span className="font-bold">CHECKING SYSTEM...</span>
+            </div>
+          )}
           {/* Theme Toggle */}
           <button
             onClick={toggleTheme}
