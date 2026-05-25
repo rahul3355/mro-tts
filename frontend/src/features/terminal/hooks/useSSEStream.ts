@@ -83,6 +83,7 @@ export function stopWarningAudio() {
 
 export function useSSEStream(connectionId: string | null): void {
   const eventSourceRef = useRef<EventSource | null>(null);
+  const pollIntervalRef = useRef<any>(null);
 
   // Store actions
   const setStage = useTerminalStore((s) => s.setStage);
@@ -96,8 +97,97 @@ export function useSSEStream(connectionId: string | null): void {
   useEffect(() => {
     if (!connectionId) return;
 
-    // Point to the FastAPI backend SSE endpoint
     const API_BASE_URL = import.meta.env.VITE_API_URL || "http://localhost:8000";
+    let isPolling = false;
+    let processedEventCount = 0;
+
+    const startPollingFallback = (connId: string) => {
+      if (isPolling || pollIntervalRef.current) return;
+      isPolling = true;
+      console.warn(`EventSource failed or was blocked. Falling back to HTTP polling for connection ID: ${connId}`);
+
+      pollIntervalRef.current = setInterval(async () => {
+        try {
+          const response = await fetch(`${API_BASE_URL}/api/v1/records/status?connection_id=${connId}`);
+          if (!response.ok) {
+            throw new Error(`Failed to fetch status: ${response.statusText}`);
+          }
+          const events = await response.json() as Array<{ event: string; data: any }>;
+
+          // Process any new events in the history array
+          for (let i = processedEventCount; i < events.length; i++) {
+            const { event: eventName, data } = events[i];
+            console.log(`Polling Fallback [${i}]: Processing event '${eventName}'`, data);
+
+            switch (eventName) {
+              case "transcribing":
+                setStage("transcribing");
+                break;
+              case "transcript":
+                updateTranscript(data.text);
+                break;
+              case "retrieving":
+                setStage("retrieving");
+                break;
+              case "references":
+                setReferences(data.references);
+                break;
+              case "extracting":
+                setStage("extracting");
+                break;
+              case "extracted_record":
+                setExtractedRecord(data.record);
+                break;
+              case "validating":
+                setStage("validating");
+                break;
+              case "validation_result":
+                setValidationResult(data.status, data.details.issues);
+                playNotificationBeep(data.status === "PASS");
+                break;
+              case "complete":
+                setStage("completed");
+                try {
+                  const storeState = useTerminalStore.getState();
+                  const session: ChecklistSession = {
+                    id: data.record_id || connId,
+                    timestamp: data.persisted_at || new Date().toISOString(),
+                    transcript: storeState.transcript,
+                    record: storeState.extractedRecord,
+                    validationStatus: storeState.validationStatus === 'PENDING' ? 'FAIL' : storeState.validationStatus,
+                    validationErrors: storeState.validationErrors,
+                    references: storeState.references,
+                  };
+                  addSession(session);
+                } catch (err) {
+                  console.error("Error archiving session via polling:", err);
+                }
+                stopPolling();
+                break;
+              case "error":
+                setErrorMessage(data.message || "An error occurred during verification.");
+                stopPolling();
+                break;
+              default:
+                break;
+            }
+            processedEventCount++;
+          }
+        } catch (err) {
+          console.error("Error during polling fallback:", err);
+        }
+      }, 1500);
+    };
+
+    const stopPolling = () => {
+      if (pollIntervalRef.current) {
+        clearInterval(pollIntervalRef.current);
+        pollIntervalRef.current = null;
+      }
+      isPolling = false;
+    };
+
+    // Point to the FastAPI backend SSE endpoint
     const backendUrl = `${API_BASE_URL}/api/v1/records/stream?connection_id=${connectionId}`;
     const es = new EventSource(backendUrl);
     eventSourceRef.current = es;
@@ -154,7 +244,6 @@ export function useSSEStream(connectionId: string | null): void {
       try {
         const payload = JSON.parse(event.data) as ValidationResultPayload;
         setValidationResult(payload.status, payload.details.issues);
-        // Play success/failure notification chimes
         playNotificationBeep(payload.status === "PASS");
       } catch (err) {
         console.error("Error parsing validation_result event data", err);
@@ -163,7 +252,6 @@ export function useSSEStream(connectionId: string | null): void {
 
     es.addEventListener("complete", (event) => {
       setStage("completed");
-      // Snapshot all pipeline state into a persistent checklist session entry
       try {
         const payload = JSON.parse(event.data) as CompletePayload;
         const storeState = useTerminalStore.getState();
@@ -184,16 +272,16 @@ export function useSSEStream(connectionId: string | null): void {
     });
 
     es.addEventListener("error", (event) => {
-      console.error("EventSource connection error:", event);
-      // Wait for error payload standard emission
-      setErrorMessage("Lost connection stream socket link. Please retry.");
+      console.warn("EventSource connection error, falling back to HTTP polling...", event);
       es.close();
+      startPollingFallback(connectionId);
     });
 
     // Cleanup hook on connection changes or unmounting
     return () => {
       es.close();
       eventSourceRef.current = null;
+      stopPolling();
     };
   }, [
     connectionId,

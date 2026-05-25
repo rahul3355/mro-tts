@@ -15,27 +15,32 @@ def init_observability(app: FastAPI, service_name: str = "mro-tts-backend") -> N
 
     Registers FastAPI auto-instrumentation for incoming requests.
     """
-    # Arize Phoenix local collector receives OTLP/HTTP traces at /v1/traces (default port 6006)
-    endpoint = os.getenv("OTEL_EXPORTER_OTLP_ENDPOINT", "http://localhost:6006/v1/traces")
-    logger.info(f"Initializing OpenTelemetry targeting Arize Phoenix collector at {endpoint}")
+    env = os.getenv("ENVIRONMENT", "development")
+    otel_endpoint = os.getenv("OTEL_EXPORTER_OTLP_ENDPOINT")
 
     resource = Resource.create(attributes={
         "service.name": service_name,
-        "environment": os.getenv("ENVIRONMENT", "development")
+        "environment": env
     })
 
     provider = TracerProvider(resource=resource)
 
-    try:
-        # Arize Phoenix local server runs OTLP over HTTP
-        exporter = OTLPSpanExporter(endpoint=endpoint)
-        processor = BatchSpanProcessor(exporter)
-        provider.add_span_processor(processor)
+    if env == "production" and not otel_endpoint:
+        logger.info("ENVIRONMENT is production and OTEL_EXPORTER_OTLP_ENDPOINT is not configured. Skipping span exporter initialization to avoid localhost connection failures.")
         trace.set_tracer_provider(provider)
-        logger.info("OpenTelemetry Tracer Provider and BatchSpanProcessor successfully initialized")
-    except Exception as e:
-        logger.error(f"Failed to configure OTel Tracer Provider: {e}")
-        return
+    else:
+        endpoint = otel_endpoint or "http://localhost:6006/v1/traces"
+        logger.info(f"Initializing OpenTelemetry targeting Arize Phoenix collector at {endpoint}")
+        try:
+            # Arize Phoenix local server runs OTLP over HTTP
+            exporter = OTLPSpanExporter(endpoint=endpoint)
+            processor = BatchSpanProcessor(exporter)
+            provider.add_span_processor(processor)
+            trace.set_tracer_provider(provider)
+            logger.info("OpenTelemetry Tracer Provider and BatchSpanProcessor successfully initialized")
+        except Exception as e:
+            logger.error(f"Failed to configure OTel Tracer Provider: {e}")
+            return
 
     # Automatically trace incoming FastAPI requests
     try:

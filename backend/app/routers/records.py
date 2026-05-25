@@ -53,6 +53,14 @@ async def stream_events(
     )
 
 
+@router.get("/status")
+async def get_connection_status(
+    connection_id: str, stream_manager: SSEStreamManager = Depends(get_stream_manager)
+) -> list[dict]:
+    """Retrieves all accumulated events in history for the given connection ID (polling fallback)."""
+    return await stream_manager.get_history(connection_id)
+
+
 @router.post("/process", status_code=status.HTTP_202_ACCEPTED)
 async def process_audio(
     connection_id: str = Form(...),
