@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useTerminalStore } from "../../../store/terminalStore";
 import { BookOpen } from "lucide-react";
+const API_BASE_URL = import.meta.env.VITE_API_URL || "http://localhost:8000";
 
 // Expanded regex covering torque, lockwire, resistance, pressure, clearances, and ISO standards
 const COMPLIANCE_REGEX = /(\b\d+(?:\.\d+)?\s*(?:to|and|-)\s*\d+(?:\.\d+)?\s*(?:foot-pounds|inch-pounds|ft-lbs|in-lbs|Nm|milliohms|m\u2126|m\u03a9|ohms|\u2126|PSI|bar|inch|inches|in|mm)\b|\b\d+(?:\.\d+)?\s*(?:foot-pounds|inch-pounds|ft-lbs|in-lbs|Nm|milliohms|m\u2126|m\u03a9|ohms|\u2126|PSI|bar|inch|inches|in|mm)\b|safety wire|lockwire|lock-wire|safety-wire|0\.032|ISO\s*\d+|Class\s+[A-Z]|Rmin\s*=\s*\d+.\w+|\bbend radius\b)/gi;
@@ -185,7 +186,7 @@ export function AMMReferences() {
             {/* Footer Actions */}
             <div className="flex justify-center mt-3 pt-2 border-t border-brand-border/40 shrink-0">
               <a 
-                href={`http://localhost:8000/api/v1/records/pdf/${activeDocPath}`}
+                href={`${API_BASE_URL}/api/v1/records/pdf/${activeDocPath}`}
                 download
                 className="px-4 py-2 bg-brand-panel-light hover:bg-brand-amber text-brand-text-bright hover:text-black rounded border border-brand-border cursor-pointer transition-all duration-150 inline-flex items-center space-x-2 font-mono text-xs uppercase font-bold"
               >
