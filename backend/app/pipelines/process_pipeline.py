@@ -187,16 +187,32 @@ class RAGPipelineCoordinator:
                     llm_span.set_attribute("llm.prompt", prompt)
                     llm_span.set_attribute("input.value", prompt)
 
-                    response_data = await self.openrouter.generate_completion(
-                        model="deepseek/deepseek-v4-flash",
-                        prompt=prompt,
-                        temperature=0.0,
-                        provider_routing={
-                            "order": ["Alibaba"],
-                            "sort": "throughput",
-                            "allow_fallbacks": False,
-                        },
-                    )
+                    # Retry loop with fallback support to handle transient rate limits or provider failures
+                    max_retries = 3
+                    backoff_delay = 1.5
+                    response_data = None
+                    for attempt in range(max_retries):
+                        try:
+                            response_data = await self.openrouter.generate_completion(
+                                model="deepseek/deepseek-v4-flash",
+                                prompt=prompt,
+                                temperature=0.0,
+                                provider_routing={
+                                    "order": ["Alibaba"],
+                                    "sort": "throughput",
+                                    "allow_fallbacks": True,  # Allow fallback to other providers if Alibaba is overloaded
+                                },
+                            )
+                            break
+                        except Exception as e:
+                            if attempt < max_retries - 1 and ("429" in str(e) or "503" in str(e) or "limit" in str(e).lower()):
+                                logger.warning(f"OpenRouter LLM call hit transient error (attempt {attempt + 1}/{max_retries}): {e}. Retrying in {backoff_delay}s...")
+                                await asyncio.sleep(backoff_delay)
+                                backoff_delay *= 2
+                            else:
+                                logger.error(f"OpenRouter LLM call failed permanently on attempt {attempt + 1}: {e}")
+                                raise
+
 
                     completion = response_data["completion"]
                     usage = response_data.get("usage") or {}

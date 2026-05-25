@@ -31,7 +31,7 @@ def call_api(prompt, options, context):
                 provider_routing={
                     "order": ["Alibaba"],
                     "sort": "throughput",
-                    "allow_fallbacks": False,
+                    "allow_fallbacks": True,
                 },
             )
             return response_data["completion"]
