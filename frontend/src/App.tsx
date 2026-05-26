@@ -13,6 +13,7 @@ const API_BASE_URL = import.meta.env.VITE_API_URL || "http://localhost:8000";
 export default function App() {
   const [sessionConnectionId, setSessionConnectionId] = useState<string | null>(null);
   const [systemStatus, setSystemStatus] = useState<'checking' | 'active' | 'degraded' | 'offline'>('checking');
+  const [countdown, setCountdown] = useState<number>(60);
 
   const connectionId = useTerminalStore((s) => s.connectionId);
   const setStoreConnectionId = useTerminalStore((s) => s.setConnectionId);
@@ -42,11 +43,25 @@ export default function App() {
     }
   }, []);
 
+  // Poll system health with a dynamic interval (5s when offline/checking, 25s when active)
   useEffect(() => {
     checkSystemHealth();
-    const interval = setInterval(checkSystemHealth, 25000);
+    const pollInterval = systemStatus === 'active' || systemStatus === 'degraded' ? 25000 : 5000;
+    const interval = setInterval(checkSystemHealth, pollInterval);
     return () => clearInterval(interval);
-  }, [checkSystemHealth]);
+  }, [checkSystemHealth, systemStatus]);
+
+  // Countdown timer for when the cloud instance is starting up
+  useEffect(() => {
+    if (systemStatus === 'active' || systemStatus === 'degraded') {
+      setCountdown(60);
+      return;
+    }
+    const timer = setInterval(() => {
+      setCountdown((prev) => (prev > 0 ? prev - 1 : 0));
+    }, 1000);
+    return () => clearInterval(timer);
+  }, [systemStatus]);
 
   // Subscribe to SSE stream if connection ID is allocated
   useSSEStream(sessionConnectionId);
@@ -139,6 +154,32 @@ export default function App() {
 
   return (
     <div className="min-h-screen flex flex-col bg-brand-canvas text-brand-text font-sans p-4 md:p-6 select-none">
+      {/* Starting cloud banner */}
+      {systemStatus !== 'active' && systemStatus !== 'degraded' && (
+        <div className="bg-brand-panel border border-brand-amber/30 rounded mb-4 overflow-hidden relative shadow-md">
+          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between px-4 py-3 font-mono text-xs gap-3">
+            <div className="flex items-center space-x-2.5">
+              <RefreshCw className="h-4 w-4 text-brand-amber animate-spin shrink-0" />
+              <div>
+                <span className="text-brand-text-bright font-bold uppercase tracking-wider block">
+                  {systemStatus === 'checking' ? 'Initializing Cloud Connection...' : 'Starting cloud instance...'}
+                </span>
+                <span className="text-[10px] text-brand-text block mt-0.5">
+                  Render free tier containers spin down after 15m of inactivity. Please wait while the cloud container boots.
+                </span>
+              </div>
+            </div>
+            <div className="bg-brand-amber/10 border border-brand-amber/20 text-brand-amber font-bold px-3 py-1 rounded shrink-0 self-end sm:self-auto">
+              EST. WARM UP: {countdown}s
+            </div>
+          </div>
+          {/* Animated progress bar sweep */}
+          <div className="absolute bottom-0 left-0 right-0 h-[2px] bg-brand-border/40 overflow-hidden">
+            <div className="h-full bg-brand-amber absolute progress-sweep" style={{ width: '40%' }} />
+          </div>
+        </div>
+      )}
+
       {/* Top Banner Status Bar */}
       <header className="flex flex-col md:flex-row items-center justify-between border-b border-brand-border pb-4 mb-6 space-y-3 md:space-y-0">
         <div className="flex items-center space-x-3 text-left">
